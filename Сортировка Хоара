@@ -1,0 +1,37 @@
+void sort4(int* p_arr, int first, int last)
+{
+	int i = first, j = last;
+	int pivot = p_arr[(first + last) / 2];
+	do
+	{
+		while (p_arr[i] < pivot)
+		{
+			++i;
+		}
+
+		while (p_arr[j] > pivot)
+		{
+			--j;
+		}
+
+		if (i <= j)
+		{
+			if (i < j)
+				std::swap(p_arr[i], p_arr[j]);
+			i++;
+			j--;
+		}
+
+	} while (i <= j);
+
+
+	if (i < last)
+	{
+		sort4(p_arr, i, last);
+	}
+	if (j > first)
+	{
+		sort4(p_arr, first, j);
+	}
+
+}
